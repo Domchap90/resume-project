@@ -39,7 +39,8 @@ function repoInformationHTML(repos) {
 }
 
 function fetchGitHubInformation(event) {    // retrieves information from api and stores into variables.
-
+    $("#gh-user-data").html("");
+    $("#gh-repo-data").html("");
     var username = $("#gh-username").val();
     if (!username) {
         $("#gh-user-data").html("<h2>Please enter a GitHub username</h2>");
@@ -72,7 +73,7 @@ function fetchGitHubInformation(event) {    // retrieves information from api an
         });
 }
 
-
+$(document).ready(fetchGitHubInformation);
 
 
 function createCORSRequest(method, url) {
