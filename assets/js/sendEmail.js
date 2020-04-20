@@ -7,6 +7,7 @@ function sendMail(contactForm) {
     .then (
         function(response) {
             console.log("SUCCESS", response);
+            $("#requestform")[0].reset();
         },
         function(error) {
             console.log("FAILED", error)
