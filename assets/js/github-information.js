@@ -37,6 +37,15 @@ function repoInformationHTML(repos) {
             </div>`;
 }
 
+$("gh-repo-data li").css({
+    "list-style": "none",
+    "border": "1px solid black",
+    "text-align": "center",
+    "color": "white",
+    "background-color": "black",
+    "margin": "2px"
+});
+
 function fetchGitHubInformation(event) {
     $("#gh-user-data").html("");
     $("#gh-repo-data").html("");
@@ -53,8 +62,8 @@ function fetchGitHubInformation(event) {
         </div>`);
 
     $.when(
-        $.getJSON(`https://api.github.com/users/${username}`),
-        $.getJSON(`https://api.github.com/users/${username}/repos`)
+        $.getJSON(`https://cors-anywhere.herokuapp.com/https://api.github.com/users/${username}`),
+        $.getJSON(`https://cors-anywhere.herokuapp.com/https://api.github.com/users/${username}/repos`)
     ).then(
         function(firstResponse, secondResponse) {
             var userData = firstResponse[0];
